@@ -11,5 +11,5 @@ def bitcoin_price(request):
     context = {'price': price}
     return render(request, 'bitcoin_price.html', context)
 def ethereum_price(request):
-    price = get_cryptocurrency_data('etherereum')
+    price = get_cryptocurrency_data('ethereum')
     return render(request, 'ethereum_price.html', {'price': price})
