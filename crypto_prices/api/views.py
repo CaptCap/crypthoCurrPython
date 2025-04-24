@@ -4,10 +4,12 @@ def get_cryptocurrency_data(coin_id):
     url = f"https://api.coingecko.com/api/v3/simple/price?ids={coin_id}&vs_currencies=usd"
     response = requests.get(url)
     data = response.json()
-    # Зверніть увагу: цей рядок може викликати помилку, якщо API не поверне очікувані дані
     return data[coin_id]['usd'] 
 
 def bitcoin_price(request):
     price = get_cryptocurrency_data('bitcoin')
     context = {'price': price}
     return render(request, 'bitcoin_price.html', context)
+def ethereum_price(request):
+    price = get_cryptocurrency_data('etherereum')
+    return render(request, 'ethereum_price.html', {'price': price})
